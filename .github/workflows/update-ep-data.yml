@@ -1,0 +1,45 @@
+name: Import EP voting data
+
+on:
+  workflow_dispatch:
+    inputs:
+      meeting_id:
+        description: 'Amtliche Sitzungs-ID, zum Beispiel MTG-PL-2026-09-15'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ep-data-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Import official roll-call votes
+        env:
+          EP_MEETING_ID: ${{ inputs.meeting_id }}
+        run: node scripts/import-ep.mjs
+      - name: Validate generated dataset
+        run: node scripts/validate-data.mjs
+      - name: Commit changed dataset
+        run: |
+          if git diff --quiet -- dist/data/ep-votes.json; then
+            echo "The generated dataset is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- dist/data/ep-votes.json
+          git commit -m "update EP voting data for ${{ inputs.meeting_id }}"
+          git push
