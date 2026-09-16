@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#102653" />
-    <meta name="description" content="Local-first Prototyp für kontinuierliche demokratische Teilhabe." />
+    <meta name="description" content="Geschlossener Local-first Test für kontinuierliche demokratische Teilhabe mit amtlichen EU-Abstimmungsdaten." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102653'/%3E%3Cpath d='M17 46V18h8l7 12 7-12h8v28h-8V31l-7 11-7-11v15z' fill='%23f4d44d'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="./styles.css" />
     <title>Mein Mandat – Demokratie, die bei dir bleibt</title>
@@ -24,10 +24,10 @@
 
       <main>
         <header class="topbar">
-          <div><span class="demo-pill">INTERAKTIVER PROTOTYP · BEISPIELDATEN</span><h1 id="page-title">Dein digitales Mandat</h1></div>
+          <div><span class="demo-pill" id="data-status">TESTVERSION · DATEN WERDEN GELADEN</span><h1 id="page-title">Dein digitales Mandat</h1></div>
           <div class="parliament-switch" role="group" aria-label="Parlament auswählen">
             <button class="active" data-parliament="eu">EU-Parlament</button>
-            <button data-parliament="bundestag">Bundestag</button>
+            <button disabled aria-disabled="true" title="Der Bundestag-Adapter folgt nach dem EU-Test">Bundestag · später</button>
           </div>
         </header>
         <div id="app-content"></div>
@@ -41,6 +41,21 @@
       </nav>
       <div id="toast" class="toast" role="status" aria-live="polite"></div>
     </div>
+
+    <dialog id="tester-dialog" class="tester-dialog" aria-labelledby="tester-title">
+      <form method="dialog">
+        <span class="eyebrow">GESCHLOSSENER PRODUKTTEST</span>
+        <h2 id="tester-title">Demokratie ausprobieren, ohne ein Profil abzugeben.</h2>
+        <p>Diese Testversion nutzt echte namentliche Abstimmungen des Europäischen Parlaments. Deine Antworten bleiben ausschließlich in diesem Browser und werden nicht hochgeladen.</p>
+        <div class="tester-points">
+          <div><b>1</b><span>Entscheide zuerst selbst.</span></div>
+          <div><b>2</b><span>Sieh danach Ergebnis und Fraktionen.</span></div>
+          <div><b>3</b><span>Prüfe die amtlichen Quellen.</span></div>
+        </div>
+        <p class="tester-caveat">Die Texte sind noch keine redaktionellen Erklärstücke. Titel und Ergebnisse stammen aus amtlichen Daten; der Vergleich ist ein transparenter Testwert, keine Wahlempfehlung.</p>
+        <button value="start" data-start-test>Test starten</button>
+      </form>
+    </dialog>
     <script type="module" src="./app.js"></script>
   </body>
 </html>

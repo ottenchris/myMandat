@@ -1,0 +1,1206 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-16T10:56:57.350Z",
+  "meetingId": "MTG-PL-2026-09-15",
+  "meetingDate": "2026-09-15",
+  "parliament": "Europäisches Parlament",
+  "license": "CC BY 4.0",
+  "source": {
+    "name": "European Parliament Open Data Portal API v2",
+    "url": "https://data.europarl.europa.eu/en/developer-corner/opendata-api",
+    "mepDataset": "https://data.europarl.europa.eu/distribution/meps_10_83_en.csv"
+  },
+  "methodology": "Pro Themenblock wird eine namentliche Schlussabstimmung ausgewählt. Fraktionspositionen sind die jeweilige Mehrheit der zugeordneten Einzelstimmen. Personen mit mehrdeutiger Fraktionshistorie im Quelldatensatz werden aus der Fraktionsaggregation ausgeschlossen.",
+  "groups": [
+    {
+      "id": "epp",
+      "name": "EVP",
+      "fullName": "Europäische Volkspartei",
+      "color": "#1f6bc8"
+    },
+    {
+      "id": "sd",
+      "name": "S&D",
+      "fullName": "Progressive Allianz der Sozialdemokraten",
+      "color": "#d64b4b"
+    },
+    {
+      "id": "pfe",
+      "name": "PfE",
+      "fullName": "Patrioten für Europa",
+      "color": "#253b78"
+    },
+    {
+      "id": "ecr",
+      "name": "EKR",
+      "fullName": "Europäische Konservative und Reformer",
+      "color": "#3972a8"
+    },
+    {
+      "id": "renew",
+      "name": "Renew",
+      "fullName": "Renew Europe",
+      "color": "#e6a426"
+    },
+    {
+      "id": "greens",
+      "name": "Grüne/EFA",
+      "fullName": "Grüne / Freie Europäische Allianz",
+      "color": "#2f9468"
+    },
+    {
+      "id": "left",
+      "name": "The Left",
+      "fullName": "Die Linke im Europäischen Parlament",
+      "color": "#9b3a8f"
+    },
+    {
+      "id": "esn",
+      "name": "ESN",
+      "fullName": "Europa der Souveränen Nationen",
+      "color": "#5d5a88"
+    }
+  ],
+  "votes": [
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195891",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Handel",
+      "title": "Vorübergehende Maßnahmen zur Liberalisierung des Handels für armenische Waren",
+      "short": "Abstimmung über den Kommissionsvorschlag im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0226/2026 - Bogdan Andrzej Zdrojewski - Vorschlag der Kommission",
+      "documentId": "A-10-2026-0226",
+      "outcome": "adopted",
+      "result": {
+        "yes": 583,
+        "no": 49,
+        "abstain": 39
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "yes",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "yes"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 174,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 174,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 126,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 126,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 12,
+          "no": 39,
+          "abstain": 20,
+          "coverage": 71,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 64,
+          "no": 4,
+          "abstain": 0,
+          "coverage": 68,
+          "position": "yes"
+        },
+        "renew": {
+          "yes": 72,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 72,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 49,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 49,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 36,
+          "no": 0,
+          "abstain": 3,
+          "coverage": 39,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 2,
+          "coverage": 24,
+          "position": "yes"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0226",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0226_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195850",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Finanzen",
+      "title": "Globale Rolle des Euro",
+      "short": "Abstimmung über den Entschließungsantrag im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0214/2026 - Rasmus Andresen - Entschließungsantrag",
+      "documentId": "A-10-2026-0214",
+      "outcome": "adopted",
+      "result": {
+        "yes": 405,
+        "no": 146,
+        "abstain": 60
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "no",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 146,
+          "no": 3,
+          "abstain": 12,
+          "coverage": 161,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 115,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 115,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 0,
+          "no": 67,
+          "abstain": 0,
+          "coverage": 67,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 3,
+          "no": 30,
+          "abstain": 29,
+          "coverage": 62,
+          "position": "no"
+        },
+        "renew": {
+          "yes": 62,
+          "no": 3,
+          "abstain": 0,
+          "coverage": 65,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 45,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 45,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 20,
+          "no": 4,
+          "abstain": 12,
+          "coverage": 36,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 0,
+          "no": 18,
+          "abstain": 0,
+          "coverage": 18,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0214",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0214_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195833",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Umwelt & Fischerei",
+      "title": "Umsetzung von Maßnahmen mehrerer regionaler Fischereiorganisationen in Unionsrecht",
+      "short": "Abstimmung über die vorläufige Einigung im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0039/2026 - Thomas Bajada - Vorläufige Einigung - Änd. 292",
+      "documentId": "A-10-2026-0039",
+      "outcome": "adopted",
+      "result": {
+        "yes": 559,
+        "no": 48,
+        "abstain": 62
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "yes",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "abstain"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 172,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 172,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 126,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 126,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 2,
+          "no": 38,
+          "abstain": 31,
+          "coverage": 71,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 3,
+          "coverage": 68,
+          "position": "yes"
+        },
+        "renew": {
+          "yes": 72,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 72,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 50,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 41,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 0,
+          "no": 3,
+          "abstain": 20,
+          "coverage": 23,
+          "position": "abstain"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0039",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0039_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195835",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Umwelt & Fischerei",
+      "title": "Allgemeine Kommission für die Fischerei im Mittelmeer (GFCM): Fischerei im Übereinkommensgebiet der GFCM",
+      "short": "Abstimmung über die vorläufige Einigung im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0150/2025 - Željana Zovko - Vorläufige Einigung - Änd. 130",
+      "documentId": "A-10-2025-0150",
+      "outcome": "adopted",
+      "result": {
+        "yes": 580,
+        "no": 51,
+        "abstain": 39
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "yes",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "yes"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 172,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 172,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 126,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 126,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 29,
+          "coverage": 70,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 63,
+          "no": 3,
+          "abstain": 2,
+          "coverage": 68,
+          "position": "yes"
+        },
+        "renew": {
+          "yes": 72,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 72,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 50,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 37,
+          "no": 0,
+          "abstain": 4,
+          "coverage": 41,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 23,
+          "no": 1,
+          "abstain": 0,
+          "coverage": 24,
+          "position": "yes"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2025-0150",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2025-0150_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-196227",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Europäische Politik",
+      "title": "Marktstabilitätsreserve für den Gebäude- und den Straßenverkehrssektor sowie für andere Sektoren",
+      "short": "Abstimmung über die vorläufige Einigung im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0098/2026 - Danuše Nerudová - Vorläufige Einigung - Änd. 30",
+      "documentId": "A-10-2026-0098",
+      "outcome": "adopted",
+      "result": {
+        "yes": 467,
+        "no": 158,
+        "abstain": 41
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "yes",
+        "renew": "yes",
+        "greens": "no",
+        "left": "no",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 150,
+          "no": 1,
+          "abstain": 20,
+          "coverage": 171,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 124,
+          "no": 1,
+          "abstain": 2,
+          "coverage": 127,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 20,
+          "no": 49,
+          "abstain": 0,
+          "coverage": 69,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 66,
+          "no": 4,
+          "abstain": 0,
+          "coverage": 70,
+          "position": "yes"
+        },
+        "renew": {
+          "yes": 69,
+          "no": 1,
+          "abstain": 0,
+          "coverage": 70,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 0,
+          "no": 46,
+          "abstain": 3,
+          "coverage": 49,
+          "position": "no"
+        },
+        "left": {
+          "yes": 11,
+          "no": 16,
+          "abstain": 11,
+          "coverage": 38,
+          "position": "no"
+        },
+        "esn": {
+          "yes": 3,
+          "no": 21,
+          "abstain": 0,
+          "coverage": 24,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0098",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0098_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-196438",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Klima & Wirtschaft",
+      "title": "Marktstabilitätsreserve für das Emissionshandelssystem der EU (EU-EHS): Gültigkeitsverfall von Zertifikaten",
+      "short": "Abstimmung über den Kommissionsvorschlag im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0230/2026 - Pierfrancesco Maran - Vorschlag der Kommission",
+      "documentId": "A-10-2026-0230",
+      "outcome": "adopted",
+      "result": {
+        "yes": 367,
+        "no": 240,
+        "abstain": 59
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "no",
+        "renew": "yes",
+        "greens": "abstain",
+        "left": "abstain",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 136,
+          "no": 36,
+          "abstain": 1,
+          "coverage": 173,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 113,
+          "no": 14,
+          "abstain": 0,
+          "coverage": 127,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 6,
+          "no": 63,
+          "abstain": 1,
+          "coverage": 70,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 15,
+          "no": 54,
+          "abstain": 1,
+          "coverage": 70,
+          "position": "no"
+        },
+        "renew": {
+          "yes": 61,
+          "no": 9,
+          "abstain": 0,
+          "coverage": 70,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 8,
+          "no": 13,
+          "abstain": 28,
+          "coverage": 49,
+          "position": "abstain"
+        },
+        "left": {
+          "yes": 10,
+          "no": 7,
+          "abstain": 23,
+          "coverage": 40,
+          "position": "abstain"
+        },
+        "esn": {
+          "yes": 2,
+          "no": 20,
+          "abstain": 1,
+          "coverage": 23,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0230",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0230_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195870",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Finanzen",
+      "title": "Entwurf des Berichtigungshaushaltsplans Nr. 2/2026: Aktualisierung der Einnahmen (Eigenmittel) und Anpassungen der Ausgaben",
+      "short": "Abstimmung über den gesamten Text im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0224/2026 - Andrzej Halicki - Vorschlag für eine Entschließung (gesamter Text)",
+      "documentId": "A-10-2026-0224",
+      "outcome": "adopted",
+      "result": {
+        "yes": 440,
+        "no": 127,
+        "abstain": 104
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "abstain",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 168,
+          "no": 0,
+          "abstain": 1,
+          "coverage": 169,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 116,
+          "no": 0,
+          "abstain": 11,
+          "coverage": 127,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 0,
+          "no": 55,
+          "abstain": 16,
+          "coverage": 71,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 5,
+          "no": 14,
+          "abstain": 52,
+          "coverage": 71,
+          "position": "abstain"
+        },
+        "renew": {
+          "yes": 65,
+          "no": 7,
+          "abstain": 0,
+          "coverage": 72,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 50,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 22,
+          "no": 4,
+          "abstain": 15,
+          "coverage": 41,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 1,
+          "no": 22,
+          "abstain": 1,
+          "coverage": 24,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0224",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0224_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195890",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Arbeit & Gesellschaft",
+      "title": "EU-Jugendstrategie 2019-2027",
+      "short": "Abstimmung über den gesamten Text im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0219/2026 - Sabrina Repp - Entschließungsantrag (gesamter Text)",
+      "documentId": "A-10-2026-0219",
+      "outcome": "adopted",
+      "result": {
+        "yes": 477,
+        "no": 124,
+        "abstain": 66
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "abstain",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 168,
+          "no": 3,
+          "abstain": 2,
+          "coverage": 173,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 124,
+          "no": 1,
+          "abstain": 0,
+          "coverage": 125,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 3,
+          "no": 65,
+          "abstain": 3,
+          "coverage": 71,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 4,
+          "no": 16,
+          "abstain": 47,
+          "coverage": 67,
+          "position": "abstain"
+        },
+        "renew": {
+          "yes": 70,
+          "no": 1,
+          "abstain": 0,
+          "coverage": 71,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 50,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 1,
+          "coverage": 40,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0,
+          "coverage": 22,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0219",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0219_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195849",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Arbeit & Gesellschaft",
+      "title": "Umsetzung der Empfehlung des Rates zu dem Thema „Eine Brücke ins Arbeitsleben – Stärkung der Jugendgarantie“",
+      "short": "Abstimmung über den gesamten Text im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0218/2026 - Hristo Petrov - Entschließungsantrag (gesamter Text)",
+      "documentId": "A-10-2026-0218",
+      "outcome": "adopted",
+      "result": {
+        "yes": 530,
+        "no": 77,
+        "abstain": 61
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "yes",
+        "ecr": "yes",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 162,
+          "no": 8,
+          "abstain": 0,
+          "coverage": 170,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 124,
+          "no": 1,
+          "abstain": 0,
+          "coverage": 125,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 47,
+          "no": 18,
+          "abstain": 6,
+          "coverage": 71,
+          "position": "yes"
+        },
+        "ecr": {
+          "yes": 41,
+          "no": 10,
+          "abstain": 18,
+          "coverage": 69,
+          "position": "yes"
+        },
+        "renew": {
+          "yes": 56,
+          "no": 11,
+          "abstain": 5,
+          "coverage": 72,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 19,
+          "coverage": 49,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 38,
+          "no": 1,
+          "abstain": 2,
+          "coverage": 41,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 3,
+          "no": 18,
+          "abstain": 3,
+          "coverage": 24,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0218",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0218_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-196109",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Klima & Wirtschaft",
+      "title": "Einrichtung des Temporären Dekarbonisierungsfonds",
+      "short": "Abstimmung über den Kommissionsvorschlag im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0202/2026 - Pascal Canfin - Vorschlag der Kommission",
+      "documentId": "A-10-2026-0202",
+      "outcome": "adopted",
+      "result": {
+        "yes": 433,
+        "no": 97,
+        "abstain": 146
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "abstain",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 138,
+          "no": 4,
+          "abstain": 32,
+          "coverage": 174,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 123,
+          "no": 0,
+          "abstain": 4,
+          "coverage": 127,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 0,
+          "no": 43,
+          "abstain": 27,
+          "coverage": 70,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 0,
+          "no": 10,
+          "abstain": 61,
+          "coverage": 71,
+          "position": "abstain"
+        },
+        "renew": {
+          "yes": 71,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 71,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 50,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 2,
+          "coverage": 41,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 2,
+          "no": 22,
+          "abstain": 0,
+          "coverage": 24,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0202",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0202_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-196071",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Klima & Wirtschaft",
+      "title": "CO2-Grenzausgleichssystem: Ausweitung des Anwendungsbereichs auf nachgelagerte Waren sowie auf Maßnahmen zur Bekämpfung von Umgehungspraktiken",
+      "short": "Abstimmung über den Kommissionsvorschlag im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0201/2026 - Mohammed Chahim - Vorschlag der Kommission",
+      "documentId": "A-10-2026-0201",
+      "outcome": "adopted",
+      "result": {
+        "yes": 464,
+        "no": 50,
+        "abstain": 159
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "abstain",
+        "ecr": "abstain",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "yes",
+        "esn": "abstain"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 165,
+          "no": 1,
+          "abstain": 8,
+          "coverage": 174,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 120,
+          "no": 0,
+          "abstain": 5,
+          "coverage": 125,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 6,
+          "no": 27,
+          "abstain": 38,
+          "coverage": 71,
+          "position": "abstain"
+        },
+        "ecr": {
+          "yes": 3,
+          "no": 7,
+          "abstain": 61,
+          "coverage": 71,
+          "position": "abstain"
+        },
+        "renew": {
+          "yes": 63,
+          "no": 0,
+          "abstain": 7,
+          "coverage": 70,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 49,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 49,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 39,
+          "no": 1,
+          "abstain": 1,
+          "coverage": 41,
+          "position": "yes"
+        },
+        "esn": {
+          "yes": 0,
+          "no": 5,
+          "abstain": 19,
+          "coverage": 24,
+          "position": "abstain"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0201",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0201_DE.html"
+        }
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-09-15-DEC-195987",
+      "parliament": "eu",
+      "status": "closed",
+      "date": "2026-09-15",
+      "topic": "Finanzen",
+      "title": "Feststellungen und Empfehlungen des Sonderausschusses für den Europäischen Schutzschild für die Demokratie",
+      "short": "Abstimmung über den gesamten Text im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.",
+      "officialDecision": "A10-0199/2026 - Tomas Tobé - Vorschlag für eine Entschließung (gesamter Text)",
+      "documentId": "A-10-2026-0199",
+      "outcome": "adopted",
+      "result": {
+        "yes": 420,
+        "no": 220,
+        "abstain": 26
+      },
+      "positions": {
+        "epp": "yes",
+        "sd": "yes",
+        "pfe": "no",
+        "ecr": "no",
+        "renew": "yes",
+        "greens": "yes",
+        "left": "no",
+        "esn": "no"
+      },
+      "groupTallies": {
+        "epp": {
+          "yes": 164,
+          "no": 1,
+          "abstain": 7,
+          "coverage": 172,
+          "position": "yes"
+        },
+        "sd": {
+          "yes": 123,
+          "no": 0,
+          "abstain": 0,
+          "coverage": 123,
+          "position": "yes"
+        },
+        "pfe": {
+          "yes": 0,
+          "no": 68,
+          "abstain": 1,
+          "coverage": 69,
+          "position": "no"
+        },
+        "ecr": {
+          "yes": 3,
+          "no": 62,
+          "abstain": 6,
+          "coverage": 71,
+          "position": "no"
+        },
+        "renew": {
+          "yes": 69,
+          "no": 0,
+          "abstain": 1,
+          "coverage": 70,
+          "position": "yes"
+        },
+        "greens": {
+          "yes": 46,
+          "no": 1,
+          "abstain": 2,
+          "coverage": 49,
+          "position": "yes"
+        },
+        "left": {
+          "yes": 6,
+          "no": 28,
+          "abstain": 7,
+          "coverage": 41,
+          "position": "no"
+        },
+        "esn": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0,
+          "coverage": 23,
+          "position": "no"
+        }
+      },
+      "sources": [
+        {
+          "label": "Amtliche Abstimmungsdaten",
+          "url": "https://data.europarl.europa.eu/api/v2/meetings/MTG-PL-2026-09-15/decisions?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000"
+        },
+        {
+          "label": "Parlamentsdokument A-10-2026-0199",
+          "url": "https://www.europarl.europa.eu/doceo/document/A-10-2026-0199_DE.html"
+        }
+      ]
+    }
+  ]
+}
