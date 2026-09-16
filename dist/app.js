@@ -1,12 +1,15 @@
 const labels = { yes: 'Dafür', no: 'Dagegen', abstain: 'Enthalten' }
 const STORAGE_KEY = 'mein-mandat-votes'
+const SKIP_KEY = 'mein-mandat-skipped'
 const ONBOARDING_KEY = 'mein-mandat-test-onboarding'
 const NOTES_KEY = 'mein-mandat-test-notes'
 
 const state = {
   view: 'today',
   expanded: '',
+  fullText: '',
   userVotes: readLocal(STORAGE_KEY, {}),
+  skipped: readLocal(SKIP_KEY, []),
   dataset: null,
   loading: true,
   error: '',
@@ -24,6 +27,14 @@ function readLocal(key, fallback) {
 
 function saveVotes() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state.userVotes))
+}
+
+function saveSkipped() {
+  localStorage.setItem(SKIP_KEY, JSON.stringify(state.skipped))
+}
+
+function nextPendingId() {
+  return state.dataset?.votes.find(vote => !state.userVotes[vote.id] && !state.skipped.includes(vote.id))?.id || ''
 }
 
 function escapeHtml(value) {
@@ -51,24 +62,32 @@ function groupMarkup(vote) {
 
 function voteCard(vote, compact = false) {
   const userVote = state.userVotes[vote.id]
+  const skipped = state.skipped.includes(vote.id)
   const expanded = state.expanded === vote.id
+  const fullTextVisible = state.fullText === vote.id
   const actions = Object.entries(labels).map(([value, label]) => `<button class="${value} ${userVote === value ? 'selected' : ''}" data-vote-id="${vote.id}" data-vote-value="${value}"><span>${value === 'yes' ? '✓' : value === 'no' ? '×' : '—'}</span>${label}</button>`).join('')
   const sources = vote.sources.map(source => `<a href="${source.url}" target="_blank" rel="noreferrer">${escapeHtml(source.label)} ↗</a>`).join('')
-  const details = expanded ? `<div class="details"><div class="context"><span class="eyebrow">AMTLICHE BEZEICHNUNG</span><h3>${escapeHtml(vote.officialDecision)}</h3><p>Die Testversion paraphrasiert den politischen Inhalt bewusst noch nicht. Lies das verlinkte Parlamentsdokument, bevor du aus diesem Titel weitreichende Schlüsse ziehst.</p></div>${userVote ? groupMarkup(vote) : ''}<div class="source-box"><div><span class="eyebrow">DO YOUR OWN RESEARCH</span><p>Prüfe Vorlage, Änderungsanträge und Verfahren in den Primärquellen. Die App zeigt Herkunft und Berechnung offen an.</p></div><div>${sources}</div></div></div>` : ''
-  return `<article class="vote-card ${compact ? 'compact' : 'featured'}"><div class="vote-meta"><span>${escapeHtml(vote.topic)}</span><time>${formatDate(vote.date)}</time></div><h2>${escapeHtml(vote.title)}</h2><p class="lead">${escapeHtml(vote.short)}</p>${resultMarkup(vote.result, Boolean(userVote))}<div class="question">Wie hättest du abgestimmt?</div><div class="vote-actions">${actions}</div>${userVote ? `<div class="saved-message">✓ Nur lokal gespeichert · Deine Position: ${labels[userVote]}</div>` : ''}<button class="expand-button" data-expand="${vote.id}">${expanded ? 'Details & Quellen schließen ↑' : 'Details & Quellen ansehen ↓'}</button>${details}</article>`
+  const fullText = fullTextVisible && vote.documentEmbedUrl ? `<div class="fulltext-frame"><div><b>Amtlicher Volltext</b><small>Wird auf deinen Klick direkt vom Europäischen Parlament geladen.</small></div><iframe src="${vote.documentEmbedUrl}" title="Amtlicher Volltext: ${escapeHtml(vote.title)}" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-same-origin allow-scripts allow-popups"></iframe><a href="${vote.documentEmbedUrl}" target="_blank" rel="noreferrer">Falls die Einbettung nicht lädt: Volltext öffnen ↗</a></div>` : ''
+  const documentDescription = vote.documentDescription || vote.documentTitle || vote.officialDecision
+  const details = expanded ? `<div class="details"><div class="context"><span class="eyebrow">AMTLICHES DOKUMENT</span><h3>${escapeHtml(vote.documentTitle || vote.officialDecision)}</h3><p>${escapeHtml(documentDescription)}</p><p class="decision-reference"><b>Abgestimmt wurde:</b> ${escapeHtml(vote.officialDecision)}</p>${vote.documentEmbedUrl ? `<button class="fulltext-button" data-fulltext="${vote.id}">${fullTextVisible ? 'Volltext ausblenden ↑' : 'Amtlichen Volltext hier anzeigen ↓'}</button>` : ''}</div>${fullText}${userVote ? groupMarkup(vote) : ''}<div class="source-box"><div><span class="eyebrow">DO YOUR OWN RESEARCH</span><p>Prüfe Vorlage, Änderungsanträge und Verfahren in den Primärquellen. Die App zeigt Herkunft und Berechnung offen an.</p></div><div>${sources}</div></div></div>` : ''
+  const skipControl = userVote ? '' : skipped ? `<div class="skip-row"><span>↷ Übersprungen · zählt nicht als Position</span><button data-unskip-id="${vote.id}">Wieder vorlegen</button></div>` : `<div class="skip-row"><span>Noch nicht sicher?</span><button data-skip-id="${vote.id}">Überspringen →</button></div>`
+  return `<article class="vote-card ${compact ? 'compact' : 'featured'} ${skipped ? 'is-skipped' : ''}"><div class="vote-meta"><span>${escapeHtml(vote.topic)}</span><time>${formatDate(vote.date)}</time></div><h2>${escapeHtml(vote.title)}</h2><p class="lead">${escapeHtml(vote.short)}</p>${resultMarkup(vote.result, Boolean(userVote))}<div class="question">Wie hättest du abgestimmt?</div><div class="vote-actions">${actions}</div>${skipControl}${userVote ? `<div class="saved-message">✓ Nur lokal gespeichert · Deine Position: ${labels[userVote]}</div>` : ''}<button class="expand-button" data-expand="${vote.id}">${expanded ? 'Details & Volltext schließen ↑' : 'Beschreibung & Volltext ansehen ↓'}</button>${details}</article>`
 }
 
 function renderToday() {
   const votes = state.dataset.votes
-  const current = votes.find(vote => !state.userVotes[vote.id]) || votes[0]
+  const current = votes.find(vote => !state.userVotes[vote.id] && !state.skipped.includes(vote.id))
   const answered = votes.filter(vote => state.userVotes[vote.id]).length
-  return `<div class="content-grid"><section><div class="section-kicker"><span class="live-dot"></span> DEINE NÄCHSTE ENTSCHEIDUNG</div>${voteCard(current)}</section><aside class="rail"><div class="stat-card dark"><span class="stat-label">DEIN TESTFORTSCHRITT</span><strong>${answered}<small>/${votes.length}</small></strong><span>Entscheidungen</span><button data-go="match">Vergleich ansehen <span>→</span></button></div><div class="info-card verified"><span class="eyebrow">VERIFIZIERTE QUELLE</span><h3>Amtliche EU-Daten, lokal verglichen</h3><p>Ergebnisse und Einzelstimmen stammen aus der Open-Data-API des Europäischen Parlaments. Deine Haltung bleibt auf diesem Gerät.</p><a href="${state.dataset.source.url}" target="_blank" rel="noreferrer">API-Dokumentation ↗</a></div><div class="principle"><span>↗</span><div><b>Selbst prüfen</b><small>Jede Entscheidung führt zu Primärquellen.</small></div></div></aside></div>`
+  const skipped = votes.filter(vote => state.skipped.includes(vote.id) && !state.userVotes[vote.id]).length
+  const main = current ? `<div class="section-kicker"><span class="live-dot"></span> DEINE NÄCHSTE ENTSCHEIDUNG</div>${voteCard(current)}` : `<div class="done-state"><span>✓</span><h2>Für den Moment bist du durch.</h2><p>Du hast alle Entscheidungen beantwortet oder übersprungen.</p><div><button data-go="match">Vergleich ansehen</button>${skipped ? '<button class="secondary" data-revisit-skipped>Übersprungene erneut ansehen</button>' : ''}</div></div>`
+  return `<div class="content-grid"><section>${main}</section><aside class="rail"><div class="stat-card dark"><span class="stat-label">DEIN TESTFORTSCHRITT</span><strong>${answered}<small>/${votes.length}</small></strong><span>Entscheidungen · ${skipped} übersprungen</span><button data-go="match">Vergleich ansehen <span>→</span></button></div><div class="info-card verified"><span class="eyebrow">VERIFIZIERTE QUELLE</span><h3>Amtliche EU-Daten, lokal verglichen</h3><p>Ergebnisse und Einzelstimmen stammen aus der Open-Data-API des Europäischen Parlaments. Deine Haltung bleibt auf diesem Gerät.</p><a href="${state.dataset.source.url}" target="_blank" rel="noreferrer">API-Dokumentation ↗</a></div><div class="principle"><span>↗</span><div><b>Selbst prüfen</b><small>Jede Entscheidung führt zu Primärquellen.</small></div></div></aside></div>`
 }
 
 function renderHistory() {
   const votes = state.dataset.votes
   const answered = votes.filter(vote => state.userVotes[vote.id]).length
-  return `<section class="history-list"><div class="history-intro"><p>Alle Abstimmungen fanden bereits statt. Du beantwortest sie rückblickend, ohne das amtliche Ergebnis vorher zu sehen.</p><span>${answered} von ${votes.length} beantwortet</span></div>${votes.map(vote => voteCard(vote, true)).join('')}</section>`
+  const skipped = votes.filter(vote => state.skipped.includes(vote.id) && !state.userVotes[vote.id]).length
+  return `<section class="history-list"><div class="history-intro"><p>Alle Abstimmungen fanden bereits statt. Du beantwortest sie rückblickend, ohne das amtliche Ergebnis vorher zu sehen. Überspringen zählt nicht als politische Position.</p><span>${answered} beantwortet · ${skipped} übersprungen</span></div>${votes.map(vote => voteCard(vote, true)).join('')}</section>`
 }
 
 function calculateMatches() {
@@ -162,16 +181,49 @@ document.addEventListener('click', event => {
   const view = event.target.closest('[data-view]')
   if (view) { state.view = view.dataset.view; render(); return }
   const vote = event.target.closest('[data-vote-id]')
-  if (vote) { state.userVotes[vote.dataset.voteId] = vote.dataset.voteValue; saveVotes(); render(); toast('Nur auf diesem Gerät gespeichert. Das amtliche Ergebnis ist jetzt sichtbar.'); return }
+  if (vote) {
+    state.userVotes[vote.dataset.voteId] = vote.dataset.voteValue
+    state.skipped = state.skipped.filter(id => id !== vote.dataset.voteId)
+    saveVotes()
+    saveSkipped()
+    state.expanded = nextPendingId()
+    state.fullText = ''
+    render()
+    toast('Nur auf diesem Gerät gespeichert. Das amtliche Ergebnis ist jetzt sichtbar.')
+    return
+  }
+  const skip = event.target.closest('[data-skip-id]')
+  if (skip) {
+    if (!state.skipped.includes(skip.dataset.skipId)) state.skipped.push(skip.dataset.skipId)
+    saveSkipped()
+    state.expanded = nextPendingId()
+    state.fullText = ''
+    render()
+    toast('Übersprungen – nicht als Position gewertet.')
+    return
+  }
+  const unskip = event.target.closest('[data-unskip-id]')
+  if (unskip) {
+    state.skipped = state.skipped.filter(id => id !== unskip.dataset.unskipId)
+    saveSkipped()
+    render()
+    toast('Die Entscheidung wird wieder vorgelegt.')
+    return
+  }
+  const fullText = event.target.closest('[data-fulltext]')
+  if (fullText) { state.fullText = state.fullText === fullText.dataset.fulltext ? '' : fullText.dataset.fulltext; render(); return }
   const expand = event.target.closest('[data-expand]')
-  if (expand) { state.expanded = state.expanded === expand.dataset.expand ? '' : expand.dataset.expand; render(); return }
+  if (expand) { state.expanded = state.expanded === expand.dataset.expand ? '' : expand.dataset.expand; if (!state.expanded) state.fullText = ''; render(); return }
   const go = event.target.closest('[data-go]')
   if (go) { state.view = go.dataset.go; render(); return }
   if (event.target.closest('[data-copy-feedback]')) { copyFeedback(); return }
   if (event.target.closest('[data-retry]')) { loadDataset(); return }
+  if (event.target.closest('[data-revisit-skipped]')) { state.skipped = []; saveSkipped(); render(); toast('Übersprungene Entscheidungen sind wieder offen.'); return }
   if (event.target.closest('[data-reset]')) {
     state.userVotes = {}
+    state.skipped = []
     localStorage.removeItem(STORAGE_KEY)
+    localStorage.removeItem(SKIP_KEY)
     localStorage.removeItem(NOTES_KEY)
     localStorage.removeItem(ONBOARDING_KEY)
     render()

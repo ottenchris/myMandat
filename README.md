@@ -24,6 +24,8 @@ Die politischen Antworten bleiben im `localStorage` des Browsers. Sie werden nic
 - Abstimmen, Verlauf, lokaler Vergleich mit acht europäischen Fraktionen und Datenschutzansicht
 - Stimmen nur in `localStorage`; keine Analytics, Cookies, Konten oder Uploads
 - amtliches Ergebnis wird erst nach der eigenen Entscheidung sichtbar
+- neutrale Überspringen-Funktion, die nicht als Enthaltung oder Position zählt
+- deutsche Dokumentbeschreibung und amtlicher Volltext direkt in der Abstimmungskarte
 - lokaler Feedback-Notizblock mit freiwilligem Kopieren ohne Einzelstimmen
 - responsive Desktop-/Mobile-Oberfläche
 

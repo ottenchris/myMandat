@@ -23,6 +23,10 @@ function apiUrl(resource) {
   return `${API_BASE}/meetings/${MEETING_ID}/${resource}?vote-method=ROLL_CALL_EV&format=application%2Fld%2Bjson&json-layout=framed-and-included&offset=0&limit=1000`
 }
 
+function documentApiUrl(docId) {
+  return `${API_BASE}/plenary-documents/${docId}?format=application%2Fld%2Bjson&json-layout=framed-and-included`
+}
+
 async function fetchJson(url) {
   const response = await fetch(url)
   if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`)
@@ -90,6 +94,15 @@ function decisionKind(label) {
   return 'Namentliche Schlussabstimmung'
 }
 
+function extractGermanDocument(document) {
+  const work = document?.data?.[0]
+  const expression = work?.is_realized_by?.find(item => item.language?.endsWith('/DEU') || item.id?.endsWith('/de'))
+  return {
+    title: expression?.title?.de || work?.title_dcterms?.de || work?.label?.de || '',
+    description: expression?.title_alternative?.de || '',
+  }
+}
+
 function tallyGroups(decision, groupByPerson) {
   const tallies = Object.fromEntries(groups.map(group => [group.id, { yes: 0, no: 0, abstain: 0 }]))
   const record = (people = [], position) => people.forEach(person => {
@@ -150,13 +163,23 @@ async function main() {
     if (candidates[0]) selected.push({ parent, decision: candidates[0].decision, score: candidates[0].score })
   }
 
-  const votes = selected
+  const chosen = selected
     .sort((a, b) => Number(a.decision.activity_order || 0) - Number(b.decision.activity_order || 0))
     .slice(0, 12)
+
+  const documentIds = [...new Set(chosen.map(({ parent }) => documentId(parent)).filter(Boolean))]
+  const documents = new Map(await Promise.all(documentIds.map(async docId => [
+    docId,
+    extractGermanDocument(await fetchJson(documentApiUrl(docId))),
+  ])))
+
+  const votes = chosen
     .map(({ parent, decision }) => {
       const title = cleanTitle(parent.activity_label?.de || decision.activity_label?.de)
       const officialDecision = cleanTitle(decision.activity_label?.de)
       const docId = documentId(parent)
+      const document = documents.get(docId) || {}
+      const documentUrl = docId ? `https://www.europarl.europa.eu/doceo/document/${docId}_DE.html` : null
       const { tallies, positions } = tallyGroups(decision, groupByPerson)
       return {
         id: decision.activity_id,
@@ -168,6 +191,9 @@ async function main() {
         short: `${decisionKind(officialDecision)} im Europäischen Parlament. Entscheide zuerst selbst; danach siehst du das amtliche Ergebnis.`,
         officialDecision,
         documentId: docId || null,
+        documentTitle: cleanTitle(document.title || title),
+        documentDescription: cleanTitle(document.description || ''),
+        documentEmbedUrl: documentUrl,
         outcome: String(decision.decision_outcome || '').split('/').pop().toLowerCase(),
         result: {
           yes: Number(decision.number_of_votes_favor || 0),
@@ -178,7 +204,7 @@ async function main() {
         groupTallies: tallies,
         sources: [
           { label: 'Amtliche Abstimmungsdaten', url: apiUrl('decisions') },
-          ...(docId ? [{ label: `Parlamentsdokument ${docId}`, url: `https://www.europarl.europa.eu/doceo/document/${docId}_DE.html` }] : []),
+          ...(documentUrl ? [{ label: `Parlamentsdokument ${docId}`, url: documentUrl }] : []),
         ],
       }
     })

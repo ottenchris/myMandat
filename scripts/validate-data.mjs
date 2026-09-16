@@ -18,6 +18,7 @@ assert(groupIds.size === dataset.groups.length, 'Duplicate group IDs')
 
 for (const vote of dataset.votes) {
   assert(vote.id && vote.date && vote.title && vote.officialDecision, `Incomplete vote ${vote.id || '(missing id)'}`)
+  assert(vote.documentTitle && vote.documentDescription && vote.documentEmbedUrl, `Missing German document metadata for ${vote.id}`)
   assert(vote.result.yes + vote.result.no + vote.result.abstain > 0, `Empty result for ${vote.id}`)
   assert(Array.isArray(vote.sources) && vote.sources.length > 0, `Missing sources for ${vote.id}`)
   assert(Object.keys(vote.positions).length >= 6, `Too few group positions for ${vote.id}`)

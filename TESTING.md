@@ -7,8 +7,8 @@ Der Test soll klären, ob Menschen eine vergangene Parlamentsentscheidung verste
 ## Empfohlener Ablauf (10–15 Minuten)
 
 1. Link auf einem privaten Gerät öffnen und das Onboarding lesen.
-2. Mindestens fünf Abstimmungen beantworten, ohne vorher externe Quellen zu öffnen.
-3. Bei zwei Abstimmungen Details und amtliche Primärquelle prüfen.
+2. Mindestens fünf Abstimmungen beantworten und mindestens eine weitere bewusst überspringen.
+3. Bei zwei Abstimmungen Beschreibung und eingebetteten amtlichen Volltext prüfen.
 4. Den Fraktionsvergleich öffnen und laut erklären, wie der Prozentwert verstanden wird.
 5. In „Privatsphäre“ eine kurze Beobachtung notieren und mit „Feedback kopieren“ über den vereinbarten Kanal senden.
 6. Optional die lokalen Daten löschen und prüfen, ob der Zustand zurückgesetzt ist.
@@ -17,6 +17,8 @@ Der Test soll klären, ob Menschen eine vergangene Parlamentsentscheidung verste
 
 - War klar, worüber abgestimmt wurde?
 - Hat das verdeckte Ergebnis geholfen, unbeeinflusst zu entscheiden?
+- War verständlich, dass „Überspringen“ keine Enthaltung und keine politische Position ist?
+- Hat der eingebettete Volltext genug Kontext geliefert, ohne den Arbeitsfluss zu unterbrechen?
 - War erkennbar, dass der Vergleich keine Wahlempfehlung ist?
 - Welche Information hat vor der Entscheidung gefehlt?
 - Würdest du einer neutralen Kurzfassung vertrauen? Unter welchen Bedingungen?
